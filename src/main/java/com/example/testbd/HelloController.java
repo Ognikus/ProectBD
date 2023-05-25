@@ -153,6 +153,10 @@ public class HelloController {
 
     @FXML
     void initialize() {
+        //Вызываемые функции---------------------------------------------------
+        UpdateGameTableColumn();
+        UpdateCategoryTableColumn();
+        //---------------------------------------------------------------------
 
         //Кнопки состояния панелей---------------------------------------------
         btnAddGame.setOnAction(actionEvent -> {
@@ -183,7 +187,7 @@ public class HelloController {
             paneSearshGame.setVisible(false);
         });
         //---------------------------------------------------------------------
-
+        //Кнопки с играми
         btnAdd.setOnAction(actionEvent -> {
             Games games = new Games(NameField.getText(), CategField.getText(), PriceField.getText(), CountField.getText());
             dtgame.add(games);
@@ -195,6 +199,45 @@ public class HelloController {
                 throw new RuntimeException("Ошибка при добавлении данных в список", e);
             }
         });
+
+
+
+
+        btnRedactInfo.setOnAction(actionEvent -> {
+            Games selectedGame = gamesTable.getSelectionModel().getSelectedItem();
+            if (selectedGame != null) {
+                Games games = new Games(NameField.getText(), CategField.getText(), PriceField.getText(), CountField.getText());
+                // После редактирования, обновить объект selectedGame с обновленными данными
+                try {
+                    dbHandler.updateGames(games);
+                } catch (SQLException e) {
+                    throw new RuntimeException("Ошибка при обновлении данных в базе данных", e);
+                }
+            } else {
+                System.out.println("No game selected");
+            }
+        });
+
+        btnDeletInfo.setOnAction(actionEvent -> {
+
+        });
+
+        //Кнопки с категориями
+        btnAddCategoryBD.setOnAction(actionEvent -> {
+            Category category = new Category(CategoryIdField.getText(), CategoryNameField.getText());
+            dtcategory.add(category);
+            try {
+                dbHandler.insertCategory(category);
+            } catch (SQLException e) {
+                throw new RuntimeException("Ошибка при добавлении данных в базу данных", e);
+            } catch (Exception e) {
+                throw new RuntimeException("Ошибка при добавлении данных в список", e);
+            }
+        });
+
+    }
+
+    private void UpdateGameTableColumn(){
         try {
             addInfAboutGames();
             nameGameColum.setCellValueFactory(new PropertyValueFactory<>("gameName"));
@@ -205,14 +248,27 @@ public class HelloController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-        btnRedactInfo.setOnAction(actionEvent -> {
-
-        });
-
+    }
+    private void UpdateCategoryTableColumn(){
+        try {
+            addInfAboutCategory();
+            CategoryIdColumn.setCellValueFactory(new PropertyValueFactory<>("CategoryId"));
+            CategoryNameColumn.setCellValueFactory(new PropertyValueFactory<>("CategoryName"));
+            CategoryTable.setItems(dtcategory);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-
+    private void addInfAboutCategory() throws SQLException{
+        ResultSet categorys = dbHandler.getCategory();
+        while (categorys.next()){
+            Category category = new Category(
+                    categorys.getString(1),
+                    categorys.getString(2));
+            dtcategory.add(category);
+        }
+    }
     private void addInfAboutGames() throws  SQLException{
         ResultSet games = dbHandler.getGames();
         while (games.next()){

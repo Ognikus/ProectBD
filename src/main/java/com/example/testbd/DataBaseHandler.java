@@ -45,9 +45,9 @@ public class DataBaseHandler {
 
 
     public ResultSet getGames() throws SQLException {
-        String getGames = "SELECT games.gamename, categoryGames.categoryname, games.gameprice, games.gamecount " +
+        String getGames = "SELECT games.gamename, categorygames.categoryname, games.gameprice, games.gamecount " +
                 "FROM games " +
-                "JOIN categoryGames ON games.gamecategory_id = categoryGames.id;";
+                "JOIN categorygames ON games.gamecategory_id = categorygames.id;";
 
         PreparedStatement prST = getDBConnection().prepareStatement(getGames);
 
@@ -59,10 +59,41 @@ public class DataBaseHandler {
         String insertGames = "INSERT INTO games(gamename, gamecategory_id, gameprice, gamecount) VALUES (?, ?, ?, ?)";
         PreparedStatement prST = connection.prepareStatement(insertGames);
         prST.setString(1, games.getGameName());
-        prST.setString(2, games.getGameCategory());
+        prST.setInt(2, Integer.parseInt(games.getGameCategory()));
         prST.setInt(3, games.getGamePrice());
         prST.setInt(4, games.getGameCount());
         prST.executeUpdate();
     }
 
+    public void updateGames(Games games) throws SQLException {
+        String updateQuery = "UPDATE games SET gamename = ?, gamecategory_id = ?, gameprice = ?, gamecount = ? WHERE gamename = ?";
+        PreparedStatement prSt = getDBConnection().prepareStatement(updateQuery);
+        prSt.setString(1, games.getGameName());
+        prSt.setInt(2, Integer.parseInt(games.getGameCategory()));
+        prSt.setInt(3, games.getGamePrice());
+        prSt.setInt(4, games.getGameCount());
+        prSt.setString(5, games.getGameName());
+        prSt.executeUpdate();
+    }
+
+    public void deleteGames(Games games) throws SQLException{
+
+    }
+
+    public void insertCategory(Category category) throws SQLException{
+        String insertCategory = "INSERT INTO categorygames(id, categoryname) VALUES (?, ?)";
+        PreparedStatement prST = connection.prepareStatement(insertCategory);
+        prST.setInt(1, category.getCategoryId());
+        prST.setString(2, category.getCategoryName());
+        prST.executeUpdate();
+    }
+
+    public ResultSet getCategory() throws SQLException {
+        String getCategory = "SELECT id, categoryname FROM categorygames";
+
+        PreparedStatement prST = getDBConnection().prepareStatement(getCategory);
+
+        resSet = prST.executeQuery();
+        return resSet;
+    }
 }

@@ -4,8 +4,8 @@ public class Category {
     Integer categoryId;
     String categoryName;
 
-    public Category(Integer categoryId, String categoryName) {
-        this.categoryId = categoryId;
+    public Category(String categoryId, String categoryName) {
+        this.categoryId = Integer.valueOf(categoryId);
         this.categoryName = categoryName;
     }
 

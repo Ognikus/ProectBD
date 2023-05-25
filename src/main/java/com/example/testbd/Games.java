@@ -1,6 +1,7 @@
 package com.example.testbd;
 
 public class Games {
+    private Integer id;
     private String gamename;
     private String category_id;
     private Integer gameprice;
@@ -44,5 +45,9 @@ public class Games {
 
     public void setGameCount(Integer gamecount) {
         this.gamecount = gamecount;
+    }
+
+    public int getGameId() {
+        return id;
     }
 }
