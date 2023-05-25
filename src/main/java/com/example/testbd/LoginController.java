@@ -36,10 +36,6 @@ public class LoginController {
 
     @FXML
     void initialize() {
-        assert LoginField != null : "fx:id=\"LoginField\" was not injected: check your FXML file 'login.fxml'.";
-        assert PasswordField != null : "fx:id=\"PasswordField\" was not injected: check your FXML file 'login.fxml'.";
-        assert RegistBTN != null : "fx:id=\"RegistBTN\" was not injected: check your FXML file 'login.fxml'.";
-        assert VoityBTN != null : "fx:id=\"VoityBTN\" was not injected: check your FXML file 'login.fxml'.";
 
         VoityBTN.setOnAction(actionEvent -> {
             String loginText = LoginField.getText().trim();
@@ -47,20 +43,20 @@ public class LoginController {
 
             if (!loginText.equals("") && !passText.equals("")) {
                 if (loginText.equals("admin") && passText.equals("admin")) {
-                    openNewWindow("hello-view.fxml");
+                    openNewWindow((Stage) RegistBTN.getScene().getWindow(), "hello-view.fxml");
                 } else {
                     try {
                         if (checkUser(loginText, passText)) {
                            loginUser(loginText, passText);
                         } else {
-                            System.out.println("Invalid login or password");
+                            System.out.println("Неверный логин или пароль");
                         }
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
                     }
                 }
             } else {
-                System.out.println("Login and password are empty!");
+                System.out.println("Логин или пароль пусты!");
             }
         });
 
@@ -79,16 +75,18 @@ public class LoginController {
     }
 
     private void loginUser(String loginText, String loginPassword) throws SQLException {
-        DataBaseHandler dbHandler = new DataBaseHandler();
+        boolean userExists = checkUser(loginText, loginPassword);
         User user = new User(loginText, loginPassword);
         user.setName(loginText);
-        user.setPassword(loginPassword);
-        boolean userInserted = dbHandler.insertUser(user);
+        UserName.setUserName(loginText);
 
-        if (userInserted) {
-            openNewWindow("UserPage.fxml");
+        if (userExists) {
+            openNewWindow((Stage) RegistBTN.getScene().getWindow(), "UserPage.fxml");
+        } else {
+            System.out.println("Неверный логин или пароль");
         }
     }
+
 
     public boolean checkUser(String loginText, String passText) throws SQLException {
         DataBaseHandler dbHandler = new DataBaseHandler();
@@ -97,7 +95,7 @@ public class LoginController {
     }
 
 
-    public void openNewWindow(String window) {
+    public void openNewWindow(Stage currentStage, String window) {
         try {
             // Загрузка файла FXML для нового окна
             FXMLLoader loader = new FXMLLoader(getClass().getResource(window));
@@ -111,10 +109,28 @@ public class LoginController {
             stage.setTitle("Название нового окна");
             stage.setScene(scene);
 
+            // Закрытие текущего окна
+            currentStage.close();
+
             // Показать новое окно
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
+    public class UserName {
+        private static String userName;
+
+        public static String getUserName() {
+            return userName;
+        }
+
+        public static void setUserName(String name) {
+            userName = name;
+        }
+    }
+
+
 }

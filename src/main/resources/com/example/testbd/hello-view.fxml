@@ -89,10 +89,11 @@
             <TextField fx:id="CategField" layoutX="100.0" layoutY="80.0" prefHeight="25.0" prefWidth="162.0" promptText="Категория" style="-fx-border-color: #7b2cbf; -fx-background-color: #5a189a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2; -fx-text-fill: #e0aaff;" />
             <TableView fx:id="gamesTable" layoutX="356.0" layoutY="18.0" prefHeight="551.0" prefWidth="469.0" style="-fx-background-color: #5a189a; -fx-background-radius: 0 0 20 20;">
                <columns>
-                  <TableColumn fx:id="nameGameColum" prefWidth="109.0" text="Имя" />
-                  <TableColumn fx:id="CategColum" prefWidth="135.0" text="Категория" />
-                  <TableColumn fx:id="PriceColum" prefWidth="92.0" text="Цена" />
-                  <TableColumn fx:id="CountColum" prefWidth="132.0" text="Колличество" />
+                  <TableColumn fx:id="IDGameColum" prefWidth="47.0" text="ID" />
+                  <TableColumn fx:id="nameGameColum" prefWidth="83.0" text="Имя" />
+                  <TableColumn fx:id="CategColum" prefWidth="100.0" text="Категория" />
+                  <TableColumn fx:id="PriceColum" prefWidth="90.0" text="Цена" />
+                  <TableColumn fx:id="CountColum" prefWidth="148.0" text="Колличество" />
                </columns>
             </TableView>
             <TextField fx:id="CountField" layoutX="100.0" layoutY="160.0" prefHeight="25.0" prefWidth="162.0" promptText="Количество" style="-fx-border-color: #7b2cbf; -fx-background-color: #5a189a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2; -fx-text-fill: #e0aaff;" />
@@ -132,6 +133,7 @@
                   <Image url="@../../../Assets/free-icon-font-delete.png" />
                </image>
             </ImageView>
+            <TextField fx:id="GamesIDLabel" disable="true" layoutX="275.0" layoutY="41.0" prefHeight="17.0" prefWidth="26.0" style="-fx-border-color: #7b2cbf; -fx-background-color: #5a189a; -fx-background-radius: 20; -fx-border-radius: 20;" />
          </children>
       </Pane>
       <Pane fx:id="paneCategory" layoutX="244.0" layoutY="74.0" prefHeight="579.0" prefWidth="839.0" style="-fx-border-color: #5a189a; -fx-border-radius: 10; -fx-border-width: 3;" visible="false" AnchorPane.leftAnchor="244.0" AnchorPane.topAnchor="74.0">
@@ -193,6 +195,7 @@
                   <Image url="@../../../Assets/free-icon-font-memo.png" />
                </image>
             </ImageView>
+            <TextField fx:id="CategoryIDLabel" disable="true" layoutX="333.0" layoutY="47.0" prefHeight="17.0" prefWidth="26.0" style="-fx-border-color: #7b2cbf; -fx-background-color: #5a189a; -fx-background-radius: 20; -fx-border-radius: 20;" />
          </children>
       </Pane>
       <Pane fx:id="paneSearch" layoutX="244.0" layoutY="74.0" prefHeight="579.0" prefWidth="839.0" style="-fx-border-color: #5a189a; -fx-border-radius: 10; -fx-border-width: 3;" visible="false" AnchorPane.leftAnchor="244.0" AnchorPane.topAnchor="74.0">
@@ -212,6 +215,7 @@
                   </Button>
                   <TableView fx:id="gamesTable1" layoutX="24.0" layoutY="58.0" prefHeight="386.0" prefWidth="726.0" style="-fx-background-color: #5a189a; -fx-background-radius: 0 0 20 20;">
                      <columns>
+                        <TableColumn fx:id="IDGameColum1" prefWidth="109.0" text="ID" />
                         <TableColumn fx:id="nameGameColum1" prefWidth="109.0" text="Имя" />
                         <TableColumn fx:id="CategColum1" prefWidth="135.0" text="Категория" />
                         <TableColumn fx:id="PriceColum1" prefWidth="92.0" text="Цена" />
