@@ -45,7 +45,10 @@ public class DataBaseHandler {
 
 
     public ResultSet getGames() throws SQLException {
-        String getGames = "SELECT * FROM games";
+        String getGames = "SELECT games.gamename, categoryGames.categoryname, games.gameprice, games.gamecount " +
+                "FROM games " +
+                "JOIN categoryGames ON games.gamecategory_id = categoryGames.id;";
+
         PreparedStatement prST = getDBConnection().prepareStatement(getGames);
 
         resSet = prST.executeQuery();
@@ -53,7 +56,7 @@ public class DataBaseHandler {
     }
 
     public void insertGames(Games games) throws SQLException {
-        String insertGames = "INSERT INTO games(gamename, gamecategory, gameprice, gamecount) VALUES (?, ?, ?, ?)";
+        String insertGames = "INSERT INTO games(gamename, gamecategory_id, gameprice, gamecount) VALUES (?, ?, ?, ?)";
         PreparedStatement prST = connection.prepareStatement(insertGames);
         prST.setString(1, games.getGameName());
         prST.setString(2, games.getGameCategory());

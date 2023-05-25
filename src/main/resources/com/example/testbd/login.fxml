@@ -1,49 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="284.0" style="-fx-background-color: #264653;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testbd.LoginController">
+<AnchorPane prefHeight="406.0" prefWidth="421.0" style="-fx-background-color: #240046;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testbd.LoginController">
    <children>
-      <TextField fx:id="LoginField" layoutX="79.0" layoutY="146.0" promptText="Логин" style="-fx-background-color: #f4a261; -fx-background-radius: 15;">
+      <TextField fx:id="LoginField" layoutX="137.0" layoutY="150.0" promptText="Логин" style="-fx-background-color: #5a189a; -fx-border-color: #7b2cbf; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2; -fx-text-fill: #e0aaff;">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <Button fx:id="VoityBTN" layoutX="92.0" layoutY="278.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #2a9d8f; -fx-background-radius: 15;" text="Войти" textFill="WHITE">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
-      <Button fx:id="RegistBTN" layoutX="57.0" layoutY="323.0" mnemonicParsing="false" style="-fx-background-color: #e76f51; -fx-background-radius: 15;" text="Зарегистрироваться" textFill="WHITE">
+      <Button fx:id="VoityBTN" layoutX="111.0" layoutY="277.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="210.0" style="-fx-background-color: #FFFFFF00; -fx-border-color: #7b2cbf; -fx-border-radius: 15;" text="Войти" textFill="#e0aaff">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Label layoutX="19.0" layoutY="146.0" text="Логин" textFill="WHITE">
+      <Button fx:id="RegistBTN" layoutX="110.0" layoutY="333.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="210.0" style="-fx-background-color: #FFFFFF00; -fx-border-color: #7b2cbf; -fx-border-radius: 15;" text="Зарегистрироваться" textFill="#e0aaff">
          <font>
             <Font size="16.0" />
          </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="65.0" layoutY="14.0" prefHeight="80.0" prefWidth="171.0" style="-fx-background-color: e9c46a; -fx-background-radius: 15;" text="Авторизация" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Label layoutX="14.0" layoutY="214.0" text="Пароль" textFill="WHITE">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <PasswordField fx:id="PasswordField" layoutX="80.0" layoutY="214.0" prefHeight="25.0" prefWidth="171.0" promptText="Пароль" style="-fx-background-color: #f4a261; -fx-background-radius: 15;">
+      </Button>
+      <PasswordField fx:id="PasswordField" layoutX="137.0" layoutY="217.0" prefHeight="33.0" prefWidth="178.0" promptText="Пароль" style="-fx-background-color: #5a189a; -fx-border-color: #7b2cbf; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2; -fx-text-fill: #e0aaff;">
          <font>
             <Font size="14.0" />
          </font>
       </PasswordField>
+      <ImageView fitHeight="108.0" fitWidth="259.0" layoutX="156.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Assets/login.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="32.0" layoutX="105.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Assets/clipboard-user.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="32.0" layoutX="105.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Assets/lock.png" />
+         </image>
+      </ImageView>
+      <Line endX="-45.999977111816406" endY="319.79998779296875" layoutX="122.0" layoutY="81.0" startX="-45.999977111816406" startY="-81.0" strokeWidth="10.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.23529411852359772" green="0.03529411926865578" blue="0.42352941632270813" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.8784313797950745" green="0.6666666865348816" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Line endX="-45.999977111816406" endY="319.79998779296875" layoutX="398.0" layoutY="81.0" startX="-45.999977111816406" startY="-81.0" strokeWidth="10.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.23529411852359772" green="0.03529411926865578" blue="0.42352941632270813" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.8784313797950745" green="0.6666666865348816" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
    </children>
 </AnchorPane>

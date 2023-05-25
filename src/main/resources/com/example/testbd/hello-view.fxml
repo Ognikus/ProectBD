@@ -84,9 +84,9 @@
                   <Font name="Harrington" size="15.0" />
                </font>
             </Button>
-            <TextField fx:id="PriceField" layoutX="100.0" layoutY="121.0" prefHeight="25.0" prefWidth="162.0" promptText="Цена" style="-fx-border-color: #7b2cbf; -fx-background-color: #5a189a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2;" />
-            <TextField fx:id="NameField" layoutX="100.0" layoutY="39.0" prefHeight="25.0" prefWidth="162.0" promptText="Имя" style="-fx-border-color: #7b2cbf; -fx-background-color: #5a189a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2;" />
-            <TextField fx:id="CategField" layoutX="100.0" layoutY="80.0" prefHeight="25.0" prefWidth="162.0" promptText="Категория" style="-fx-border-color: #7b2cbf; -fx-background-color: #5a189a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2;" />
+            <TextField fx:id="PriceField" layoutX="100.0" layoutY="121.0" prefHeight="25.0" prefWidth="162.0" promptText="Цена" style="-fx-border-color: #7b2cbf; -fx-background-color: #5a189a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2; -fx-text-fill: #e0aaff;" />
+            <TextField fx:id="NameField" layoutX="100.0" layoutY="39.0" prefHeight="25.0" prefWidth="162.0" promptText="Имя" style="-fx-border-color: #7b2cbf; -fx-background-color: #5a189a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2; -fx-text-fill: #e0aaff;" />
+            <TextField fx:id="CategField" layoutX="100.0" layoutY="80.0" prefHeight="25.0" prefWidth="162.0" promptText="Категория" style="-fx-border-color: #7b2cbf; -fx-background-color: #5a189a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2; -fx-text-fill: #e0aaff;" />
             <TableView fx:id="gamesTable" layoutX="356.0" layoutY="18.0" prefHeight="551.0" prefWidth="469.0" style="-fx-background-color: #5a189a; -fx-background-radius: 0 0 20 20;">
                <columns>
                   <TableColumn fx:id="nameGameColum" prefWidth="109.0" text="Имя" />
@@ -95,7 +95,7 @@
                   <TableColumn fx:id="CountColum" prefWidth="132.0" text="Колличество" />
                </columns>
             </TableView>
-            <TextField fx:id="CountField" layoutX="100.0" layoutY="160.0" prefHeight="25.0" prefWidth="162.0" promptText="Количество" style="-fx-border-color: #7b2cbf; -fx-background-color: #5a189a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2;" />
+            <TextField fx:id="CountField" layoutX="100.0" layoutY="160.0" prefHeight="25.0" prefWidth="162.0" promptText="Количество" style="-fx-border-color: #7b2cbf; -fx-background-color: #5a189a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2; -fx-text-fill: #e0aaff;" />
             <Line endX="15.0" endY="-18.0" layoutX="307.0" layoutY="21.0" startX="15.0" startY="555.0" stroke="#5a189a" strokeWidth="5.0" />
             <ImageView fitHeight="30.0" fitWidth="26.0" layoutX="73.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -134,7 +134,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="paneCategory" layoutX="244.0" layoutY="74.0" prefHeight="579.0" prefWidth="839.0" style="-fx-border-color: #5a189a; -fx-border-radius: 10; -fx-border-width: 3;" AnchorPane.leftAnchor="244.0" AnchorPane.topAnchor="74.0">
+      <Pane fx:id="paneCategory" layoutX="244.0" layoutY="74.0" prefHeight="579.0" prefWidth="839.0" style="-fx-border-color: #5a189a; -fx-border-radius: 10; -fx-border-width: 3;" visible="false" AnchorPane.leftAnchor="244.0" AnchorPane.topAnchor="74.0">
          <children>
             <TableView fx:id="CategoryTable" layoutX="426.0" layoutY="14.0" prefHeight="551.0" prefWidth="399.0" style="-fx-background-color: #5a189a; -fx-background-radius: 0 0 20 20;">
               <columns>
@@ -143,12 +143,12 @@
               </columns>
             </TableView>
             <Line endX="15.0" endY="-18.0" layoutX="361.0" layoutY="21.0" startX="15.0" startY="555.0" stroke="#5a189a" strokeWidth="5.0" />
-            <TextField fx:id="CategoryIdField" layoutX="90.0" layoutY="46.0" prefHeight="33.0" prefWidth="228.0" promptText="ID категории" style="-fx-border-color: #7b2cbf; -fx-background-color: #5a189a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2;">
+            <TextField fx:id="CategoryIdField" layoutX="90.0" layoutY="46.0" prefHeight="33.0" prefWidth="228.0" promptText="ID категории" style="-fx-border-color: #7b2cbf; -fx-background-color: #5a189a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2; -fx-text-fill: #e0aaff;">
                <font>
                   <Font name="Harrington" size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="CategoryNameField" layoutX="90.0" layoutY="105.0" prefHeight="33.0" prefWidth="228.0" promptText="Имя категории" style="-fx-border-color: #7b2cbf; -fx-background-color: #5a189a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2;">
+            <TextField fx:id="CategoryNameField" layoutX="90.0" layoutY="105.0" prefHeight="33.0" prefWidth="228.0" promptText="Имя категории" style="-fx-border-color: #7b2cbf; -fx-background-color: #5a189a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2; -fx-text-fill: #e0aaff;">
                <font>
                   <Font name="Harrington" size="15.0" />
                </font>
@@ -195,11 +195,11 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="paneSearch" layoutX="244.0" layoutY="74.0" prefHeight="579.0" prefWidth="839.0" style="-fx-border-color: #5a189a; -fx-border-radius: 10; -fx-border-width: 3;" visible="false">
+      <Pane fx:id="paneSearch" layoutX="244.0" layoutY="74.0" prefHeight="579.0" prefWidth="839.0" style="-fx-border-color: #5a189a; -fx-border-radius: 10; -fx-border-width: 3;" visible="false" AnchorPane.leftAnchor="244.0" AnchorPane.topAnchor="74.0">
          <children>
             <Pane fx:id="paneSearshGame" layoutX="29.0" layoutY="90.0" prefHeight="466.0" prefWidth="782.0" style="-fx-border-color: #7b2cbf; -fx-background-color: #10002b; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-width: 4;" visible="false">
                <children>
-                  <TextField fx:id="SearchGameField" layoutX="44.0" layoutY="15.0" promptText="Поиск" style="-fx-border-color: #7b2cbf; -fx-background-color: #5a189a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2;" />
+                  <TextField fx:id="SearchGameField" layoutX="44.0" layoutY="15.0" promptText="Поиск" style="-fx-border-color: #7b2cbf; -fx-background-color: #5a189a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2; -fx-text-fill: #e0aaff;" />
                   <ImageView fitHeight="30.0" fitWidth="26.0" layoutX="11.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../Assets/free-icon-font-search.png" />
@@ -240,9 +240,9 @@
                   <Image url="@../../../Assets/free-icon-font-ballot.png" />
                </image>
             </ImageView>
-            <Pane fx:id="paneSearshCategory" layoutX="29.0" layoutY="90.0" prefHeight="466.0" prefWidth="782.0" style="-fx-border-color: #7b2cbf; -fx-background-color: #10002b; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-width: 4;">
+            <Pane fx:id="paneSearshCategory" layoutX="29.0" layoutY="90.0" prefHeight="466.0" prefWidth="782.0" style="-fx-border-color: #7b2cbf; -fx-background-color: #10002b; -fx-background-radius: 15; -fx-border-radius: 15; -fx-border-width: 4;" visible="false">
                <children>
-                  <TextField fx:id="SearchCategoryField" layoutX="44.0" layoutY="15.0" promptText="Поиск" style="-fx-border-color: #7b2cbf; -fx-background-color: #5a189a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2;" />
+                  <TextField fx:id="SearchCategoryField" layoutX="44.0" layoutY="15.0" promptText="Поиск" style="-fx-border-color: #7b2cbf; -fx-background-color: #5a189a; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 2; -fx-text-fill: #e0aaff;" />
                   <ImageView fitHeight="30.0" fitWidth="26.0" layoutX="11.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../Assets/free-icon-font-search.png" />

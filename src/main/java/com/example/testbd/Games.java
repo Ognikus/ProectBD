@@ -1,48 +1,48 @@
 package com.example.testbd;
 
 public class Games {
-    String gameName;
-    String gameCategory;
-    Integer gamePrice;
-    Integer gameCount;
+    private String gamename;
+    private String category_id;
+    private Integer gameprice;
+    private Integer gamecount;
 
 
-    public Games(String gameName, String gameCategory, String gamePrice, String gameCount) {
-        this.gameName = gameName;
-        this.gameCategory = gameCategory;
-        this.gamePrice = Integer.valueOf(gamePrice);
-        this.gameCount = Integer.valueOf(gameCount);
+    public Games(String gamename, String category_id, String gameprice, String gamecount) {
+        this.gamename = gamename;
+        this.category_id = category_id;
+        this.gameprice = Integer.valueOf(gameprice);
+        this.gamecount = Integer.valueOf(gamecount);
     }
 
     public String getGameName() {
-        return gameName;
+        return gamename;
     }
 
-    public void setGameName(String gameName) {
-        this.gameName = gameName;
+    public void setGameName(String gamename) {
+        this.gamename = gamename;
     }
 
-    public String getGameCategory() {
-        return gameCategory;
+    public String  getGameCategory() {
+        return category_id;
     }
 
-    public void setGameCategory(String gameCategory) {
-        this.gameCategory = gameCategory;
+    public void setGameCategory(String category_id) {
+        this.category_id = category_id;
     }
 
     public Integer getGamePrice() {
-        return gamePrice;
+        return gameprice;
     }
 
-    public void setGamePrice(Integer gamePrice) {
-        this.gamePrice = gamePrice;
+    public void setGamePrice(Integer gameprice) {
+        this.gameprice = gameprice;
     }
 
     public Integer getGameCount() {
-        return gameCount;
+        return gamecount;
     }
 
-    public void setGameCount(Integer gameCount) {
-        this.gameCount = gameCount;
+    public void setGameCount(Integer gamecount) {
+        this.gamecount = gamecount;
     }
 }
