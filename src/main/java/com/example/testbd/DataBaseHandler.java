@@ -45,7 +45,7 @@ public class DataBaseHandler {
 
 
     public ResultSet getGames() throws SQLException {
-        String getGames = "SELECT games.gamename, categorygames.categoryname, games.gameprice, games.gamecount " +
+        String getGames = "SELECT games.id, games.gamename, categorygames.categoryname, games.gameprice, games.gamecount " +
                 "FROM games " +
                 "JOIN categorygames ON games.gamecategory_id = categorygames.id;";
 
@@ -66,18 +66,40 @@ public class DataBaseHandler {
     }
 
     public void updateGames(Games games) throws SQLException {
-        String updateQuery = "UPDATE games SET gamename = ?, gamecategory_id = ?, gameprice = ?, gamecount = ? WHERE gamename = ?";
+        String updateQuery = "UPDATE games SET gamename = ?, gamecategory_id = ?, gameprice = ?, gamecount = ? WHERE id = ?";
         PreparedStatement prSt = getDBConnection().prepareStatement(updateQuery);
         prSt.setString(1, games.getGameName());
         prSt.setInt(2, Integer.parseInt(games.getGameCategory()));
         prSt.setInt(3, games.getGamePrice());
         prSt.setInt(4, games.getGameCount());
-        prSt.setString(5, games.getGameName());
+        prSt.setInt(5, games.getGameId());
         prSt.executeUpdate();
     }
 
-    public void deleteGames(Games games) throws SQLException{
+    public void deleteGame(int gameId) throws SQLException {
+        String deleteQuery = "DELETE FROM games WHERE id = ?";
+        PreparedStatement prSt = getDBConnection().prepareStatement(deleteQuery);
+        prSt.setInt(1, gameId);
+        prSt.executeUpdate();
+    }
 
+    public ResultSet getGamesSearch(String gameName) throws SQLException{
+        String searchQuery = "SELECT * FROM games WHERE gamename = ?";
+        PreparedStatement prSt = getDBConnection().prepareStatement(searchQuery);
+        prSt.setString(1, gameName);
+
+        resSet = prSt.executeQuery();
+        return resSet;
+    }
+
+
+    public ResultSet getCategorySearch(String categoryName) throws SQLException{
+        String searchCategory = "SELECT * FROM categorygames WHERE categoryname = ?";
+        PreparedStatement prSt = getDBConnection().prepareStatement(searchCategory);
+        prSt.setString(1, categoryName);
+
+        resSet = prSt.executeQuery();
+        return resSet;
     }
 
     public void insertCategory(Category category) throws SQLException{
@@ -91,9 +113,24 @@ public class DataBaseHandler {
     public ResultSet getCategory() throws SQLException {
         String getCategory = "SELECT id, categoryname FROM categorygames";
 
-        PreparedStatement prST = getDBConnection().prepareStatement(getCategory);
+        PreparedStatement prSt = getDBConnection().prepareStatement(getCategory);
 
-        resSet = prST.executeQuery();
+        resSet = prSt.executeQuery();
         return resSet;
+    }
+
+    public void updateCategory(Category category) throws SQLException{
+        String updateQuery = "UPDATE categorygames SET categoryname = ? WHERE id = ?";
+        PreparedStatement prSt = getDBConnection().prepareStatement(updateQuery);
+        prSt.setString(1, category.getCategoryName());
+        prSt.setInt(2, category.getCategoryId());
+        prSt.executeUpdate();
+    }
+
+    public void deleteCategory(int categoryId) throws SQLException {
+        String deleteQuery = "DELETE FROM categorygames  WHERE id = ?";
+        PreparedStatement prSt= getDBConnection().prepareStatement(deleteQuery);
+        prSt.setInt(1, categoryId);
+        prSt.executeUpdate();
     }
 }

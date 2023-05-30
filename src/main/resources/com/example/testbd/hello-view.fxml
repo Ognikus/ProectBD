@@ -208,7 +208,7 @@
                         <Image url="@../../../Assets/free-icon-font-search.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="btnSearshGame" layoutX="207.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="134.0" style="-fx-background-color: #FFFFFF00; -fx-border-color: #7b2cbf; -fx-border-radius: 15;" text="Найти" textFill="#e0aaff">
+                  <Button fx:id="btnSearshGameTB" layoutX="207.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="134.0" style="-fx-background-color: #FFFFFF00; -fx-border-color: #7b2cbf; -fx-border-radius: 15;" text="Найти" textFill="#e0aaff">
                      <font>
                         <Font name="Harrington" size="15.0" />
                      </font>

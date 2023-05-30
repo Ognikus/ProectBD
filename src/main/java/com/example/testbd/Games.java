@@ -8,11 +8,12 @@ public class Games {
     private Integer gamecount;
 
 
-    public Games(String gamename, String category_id, String gameprice, String gamecount) {
+    public Games(String id, String gamename, String category_id, String gameprice, String gamecount) {
+        this.id = (id != null && !id.trim().isEmpty()) ? Integer.valueOf(id) : null;
         this.gamename = gamename;
         this.category_id = category_id;
-        this.gameprice = Integer.valueOf(gameprice);
-        this.gamecount = Integer.valueOf(gamecount);
+        this.gameprice = (gameprice != null && !gameprice.trim().isEmpty()) ? Integer.valueOf(gameprice) : null;
+        this.gamecount = (gamecount != null && !gamecount.trim().isEmpty()) ? Integer.valueOf(gamecount) : null;
     }
 
     public String getGameName() {
@@ -49,5 +50,9 @@ public class Games {
 
     public int getGameId() {
         return id;
+    }
+
+    public void setGameId(Integer id) {
+        this.id = id;
     }
 }
