@@ -20,16 +20,6 @@ public class DataBaseHandler {
         return preparedStatement.executeQuery();
     }
 
-    public ResultSet getUserName() throws SQLException {
-        String getUserName = "SELECT login FROM users";
-
-        try (PreparedStatement prSt = getDBConnection().prepareStatement(getUserName)) {
-            resSet = prSt.executeQuery();
-            return resSet;
-        }
-    }
-
-
     public boolean insertUser(User user) throws SQLException {
         String insertUser = "INSERT INTO users(login, password) VALUES (?, ?)";
 
